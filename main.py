@@ -118,18 +118,5 @@ async def createwyr(ctx, *, sentence):
   await ctx.reply("WYR created.\nREMEMBER: Your WYR may not break the rules of this server!")
 
 
-@client.command()
-async def pickup(ctx, user: discord.User):
-  if user == None:
-    await ctx.reply("Mention someone, if you wanna use a line")
-  else:
-    with open('pick.json') as pick:
-      pick = list(json.load(pick).items())
-      pick = choice(pick)
-      pick, author = pick
-      embed = discord.Embed(title = "Pickup line", description = pick, color = 0xfd6bbe)
-      await ctx.send(f"{pick}")
-
-
 my_secret = os.environ['TOKEN']
 client.run(os.getenv('TOKEN'))
