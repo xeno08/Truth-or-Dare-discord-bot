@@ -65,7 +65,7 @@ async def inv(ctx):
         inv = list(json.load(inv).items())
         inv = choice(inv)
         inv, author = inv
-    embed = discord.Embed(title= "Invite me!",description='[Invite me to your Server!](https://discord.com/api/oauth2/authorize?client_id=890608373437980732&permissions=380104727552&scope=bot)' ,color=0xa9a9a9)
+    embed = discord.Embed(title= "Invite me!",description=f"[Invite me to your Server!]({inv})" ,color=0xa9a9a9)
     await ctx.reply(embed=embed)
 
 @client.command()
@@ -74,16 +74,7 @@ async def server(ctx):
       server = list(json.load(server).items())
       server = choice(server)
       server, author = server
-      embed = discord.Embed(title="Join my Server!",description='[Join here!](https://discord.gg/hsPv5bhhs9)',color=0xffea00)
-      await ctx.reply(embed=embed)
-
-@client.command()
-async def ver(ctx):
-    with open('ver.json') as ver:
-      ver = list(json.load(ver).items())
-      ver = choice(ver)
-      ver, author = ver
-      embed = discord.Embed(title="Current version",description=ver,color=0xffbf00)
+      embed = discord.Embed(title="Join my Server!",description=f"[Join here!]({server)",color=0xffea00)
       await ctx.reply(embed=embed)
       
 @commands.has_permissions(administrator=True) #you can remove this setting if u want, here i set this command to an only admin, so that only roles with admin power can create dares
